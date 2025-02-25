@@ -1,7 +1,10 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Sidebar from "@/components/common/Sidebar"
 import "./globals.css";
+import Header from "@/components/common/Header";
+import PageTitle from "@/components/common/PageTitle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +26,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
 
@@ -32,7 +37,18 @@ export default function RootLayout({
 
           <Sidebar />
 
-          {children}
+          <div className="flex flex-col flex-grow">
+            <Header />
+
+            <main className="overflow-auto px-4 md:px-8 lg:px-12 py-4 flex-grow bg-black">
+
+              <PageTitle userFullName={"Gia Bao Tran"} />
+
+              {children}
+
+            </main>
+
+          </div>
 
         </div>
 

@@ -1,12 +1,13 @@
 import { Home, Settings, User, Wallet, Receipt, LogOut, Cloud } from "lucide-react";
+import Link from 'next/link'
 
 export default function Sidebar() {
   const menuItems = [
-    { icon: <Home size={24} />, name: "Home" },
-    { icon: <Wallet size={24} />, name: "Wallet" },
-    { icon: <Receipt size={24} />, name: "Receipt" },
-    { icon: <User size={24} />, name: "User" },
-    { icon: <Settings size={24} />, name: "Settings" },
+    { icon: <Home size={24} />, name: "Home", href: "/", },
+    { icon: <Wallet size={24} />, name: "Wallet", href: "/" },
+    { icon: <Receipt size={24} />, name: "Receipt", href: "/transaction" },
+    { icon: <User size={24} />, name: "User", href: "/" },
+    { icon: <Settings size={24} />, name: "Settings", href: "/" },
   ];
 
   return (
@@ -20,7 +21,9 @@ export default function Sidebar() {
               key={menuItem.name}
               className="hover:bg-gray-700 p-2 rounded-lg cursor-pointer transition delay-10"
             >
-              {menuItem.icon}
+              <Link href={menuItem.href}>
+                {menuItem.icon}
+              </Link>
             </li>
           ))}
         </ul>

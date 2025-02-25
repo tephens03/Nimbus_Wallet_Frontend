@@ -11,15 +11,12 @@ export default function MoneyDisplay({ balance }: { balance: number }) {
         : ["•••••", "••"];
 
     return (
-        <div className="bg-black rounded-xl shadow-md text-white flex flex-col md:flex-row justify-between items-start md:items-center w-full space-y-4 md:space-y-0">
+        <div className="text-white flex flex-col md:flex-row justify-between items-start md:items-center w-full mb-6 space-y-4 md:space-y-0">
             {/* Balance & Eye Icon */}
             <div className="flex items-center">
                 <h2 className="text-4xl md:text-5xl font-semibold flex items-baseline">
-
-
                     <span>{`$${dollars}`}</span>
                     <span className="text-lg md:text-2xl ml-1 opacity-80">{`.${cents}`}</span>
-
                 </h2>
                 <button
                     onClick={() => setIsVisible(!isVisible)}
@@ -27,6 +24,7 @@ export default function MoneyDisplay({ balance }: { balance: number }) {
                 >
                     {isVisible ? <EyeOff size={14} /> : <Eye size={14} />}
                 </button>
+
             </div>
 
             {/* Action Buttons (Left-Aligned on Small Screens) */}
