@@ -1,19 +1,28 @@
+"use client"
+import { usePathname } from 'next/navigation'
 import { Search } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-export default function Header() {
+export default function Header({ userFullName }: { userFullName: string }) {
+  const currentRoute = usePathname()
+  const currentPageTitle = currentRoute == '/' ? "Dashboard" : currentRoute[1].toLocaleUpperCase() + currentRoute.slice(2)
+
   return (
-    <header className="bg-black text-white h-12 px-4 flex justify-between items-center w-full">
-      {/* Left - Empty Space for Sidebar */}
-      <div className="w-12"></div>
+    <header className="gap-4  px-6 lg:px-8 bg-black py-4 lg:py    flex flex-wrap justify-between items-center ">
+
+      {/* Dashboard Title & Welcome Message */}
+      <div className="min-w-[200px]">
+        <h1 className="text-xl text-white md:text-2xl font-bold">{currentPageTitle}</h1>
+        <p className="text-gray-400 text-sm md:text-base">Welcome back, {userFullName}</p>
+      </div>
 
       {/* Center - Slim Search Bar (Hidden on Mobile) */}
-      <div className="hidden md:flex items-center bg-purple-950 px-3 py-1.5 rounded-lg flex-grow max-w-md">
+      <div className="hidden md:flex items-center bg-white px-3 py-1.5 rounded-lg flex-grow max-w-md">
         <Search size={18} className="text-gray-400" />
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent outline-none text-white pl-2 flex-grow text-sm"
+          className="bg-transparent outline-none  pl-2 flex-grow text-sm"
         />
       </div>
 
@@ -26,5 +35,7 @@ export default function Header() {
       </button>
 
     </header>
+
+
   );
 }
