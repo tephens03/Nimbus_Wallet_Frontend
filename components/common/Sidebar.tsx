@@ -11,7 +11,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-12 h-screen bg-black text-white p-4 hidden md:flex flex-col items-center space-y-6">
+    <aside className="w-12 bg-green-100 h-screen text-white p-4 hidden md:flex flex-col items-center space-y-6">
 
       {/* Navigation Menu */}
       <nav className="flex flex-col items-center space-y-6 flex-1">
@@ -19,7 +19,7 @@ export default function Sidebar() {
           {menuItems.map((menuItem) => (
             <li
               key={menuItem.name}
-              className="hover:bg-gray-700 p-2 rounded-lg cursor-pointer transition delay-10"
+              className=" text-gray-500 hover:bg-lime-200 hover:text-green-900 p-2 rounded-lg cursor-pointer transition delay-10"
             >
               <Link href={menuItem.href}>
                 {menuItem.icon}
