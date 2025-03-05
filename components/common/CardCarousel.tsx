@@ -11,12 +11,14 @@ import {
 export function CardCarousel() {
   return (
     // <Carousel className="w-full min-w-[260px] sm:min-w-[280px] sm:mx-auto md:min-w-[320px] lg:min-w-[320px]">
-    <Carousel className="w-full max-w-[260px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[320px]">
+    // <Carousel className="w-full max- min-w-[300px]">
+    // <Carousel className="w-full max-w-[300px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[320px]">
+    <Carousel className="w-full max-w-[300px]">
       <CarouselContent>
         {Array.from({ length: 3 }).map((_, index) => (
           <CarouselItem key={index} className="basis-full">
 
-            <Card className="  | bg-gradient-to-r from-gray-800 to-gray-900 |  text-white rounded-xl aspect-[5/3] flex flex-col justify-between p-4">
+            <Card className="bg-green-900 text-white rounded-xl aspect-[5/3] flex flex-col justify-between p-4">
               {/* Bank Name & Type */}
               <div className="flex justify-between items-center text-xs">
                 <span className="font-semibold">Nimbus Bank</span>

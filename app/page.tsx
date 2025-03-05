@@ -1,6 +1,7 @@
 import { CardCarousel } from "@/components/common/CardCarousel";
 import LineChart_1 from "@/components/common/LineChart";
 import MoneyDisplay from "@/components/common/MoneyDisplay";
+import Transaction from "@/components/common/Transaction";
 import Balance from "@/components/dashboard/DashboardBalance";
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
     <div className="flex flex-wrap gap-4 w-full">
 
       {/* Left Section (3 parts) */}
-      <div className="flex-[6] flex flex-col">
+      <div className="flex-[14] flex flex-col">
+
         <div className="flex flex-wrap gap-4 justify-between mb-4">
           <CardCarousel />
           <MoneyDisplay />
@@ -16,22 +18,23 @@ export default function Home() {
           <MoneyDisplay />
         </div>
 
-        <div>
-          <LineChart_1 />
-        </div>
+
+
+
+        <Transaction headerOn={true} />
+
+
+
+        <LineChart_1 />
+
+
+
 
       </div>
 
       {/* Right Section (4 parts) */}
-      <div className="flex-[2] bg-gray-200 p-4 rounded-lg">
-      <MoneyDisplay />
-      <MoneyDisplay />
-      <MoneyDisplay />
-      <MoneyDisplay />
-      <MoneyDisplay />
-      <MoneyDisplay />
-      <MoneyDisplay />
-
+      <div className="flex-[4] bg-gray-200 p-4 rounded-lg">
+        right-bar
       </div>
 
     </div>
