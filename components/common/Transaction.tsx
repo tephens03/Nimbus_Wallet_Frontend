@@ -12,9 +12,10 @@ import { CardDescription, CardHeader, CardTitle } from "../ui/card";
 export default function Transaction({ headerOn }: { headerOn: boolean }) {
     return (
         <div className="border rounded-2xl shadow p-4">
-            <CardHeader>
-                <CardTitle>Line Chart - Label</CardTitle>
-                <CardDescription>January - June 2024</CardDescription>
+
+            <CardHeader >
+                <CardTitle className="text-gray-900">Transaction</CardTitle>
+                <CardDescription>Last updated 2 hours ago</CardDescription>
             </CardHeader>
 
             <Table>

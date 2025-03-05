@@ -39,15 +39,14 @@ const chartConfig = {
 
 export default function LineChart_1() {
   return (
-    <div className="border rounded-2xl p-4">
+    <div className="border rounded-2xl p-4 ">
 
       <Card>
 
-        <CardHeader >
-          <CardTitle className="text-gray-900">Line Chart - Label</CardTitle>
-          <CardDescription>January - June 2024</CardDescription>
+        <CardHeader>
+          <CardTitle>Cash Flow</CardTitle>
+          <CardDescription>January - June 2025</CardDescription>
         </CardHeader>
-
 
         <CardContent>
           <ChartContainer config={chartConfig}>
@@ -55,6 +54,7 @@ export default function LineChart_1() {
               accessibilityLayer
               data={chartData}
               margin={{
+                
                 top: 20,
                 left: 12,
                 right: 12,
@@ -94,14 +94,16 @@ export default function LineChart_1() {
             </LineChart>
           </ChartContainer>
         </CardContent>
-        <CardFooter className="flex-col items-start gap-2 text-sm">
+
+        {/* <CardFooter className="flex-col items-start gap-2 text-sm">
           <div className="flex gap-2 font-medium leading-none">
             Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
           </div>
           <div className="leading-none text-muted-foreground">
             Showing total visitors for the last 6 months
           </div>
-        </CardFooter>
+        </CardFooter> */}
+
       </Card>
     </div>
 

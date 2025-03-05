@@ -20,12 +20,17 @@ export default function Home() {
 
 
 
+        <div className="sm:flex gap-4">
 
-        <Transaction headerOn={true} />
+          <div className="sm:flex-[2]">
+            <Transaction headerOn={true} />
+          </div>
 
+          <div className="sm:flex-[3]">
+            <LineChart_1  />
+          </div>
 
-
-        <LineChart_1 />
+        </div>
 
 
 

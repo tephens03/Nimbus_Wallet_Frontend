@@ -3,7 +3,7 @@ import { ArrowUpCircle, ArrowDownCircle, MoreVertical } from "lucide-react";
 
 export default function MoneyDisplay() {
     return (
-        <div className="flex flex-col justify-between rounded-2xl p-4 w-full max-w-[300px] sm:aspect-[5/3] sm:max-w-[180px] sm:aspect-[1/1] rounded-xl border shadow">
+        <div className="flex flex-col justify-between rounded-2xl p-4 w-full max-w-[300px] sm:aspect-[5/3] sm:max-w-[180px] sm:aspect-square rounded-xl border shadow">
             {/* <Card className="bg-black sm:max-w-[20px] text-white shadow-md rounded-2xl p-4 w-full max-w-[200px] flex flex-col gap-4"> */}
 
             {/* // <Card className="w-full flex flex-col gap-4 rounded-2xl p-4 box-content  max-w-[300px] min-w-[300px]"> */}
