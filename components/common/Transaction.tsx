@@ -8,22 +8,31 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { CardDescription, CardHeader, CardTitle } from "../ui/card";
+import FilterButton from "./FilterButton";
 
 export default function Transaction({ headerOn }: { headerOn: boolean }) {
     return (
         <div className="border rounded-2xl shadow p-4">
 
-            <CardHeader >
-                <CardTitle className="text-gray-900">Transaction</CardTitle>
-                <CardDescription>Last updated 2 hours ago</CardDescription>
-            </CardHeader>
+            <CardHeader>
+                <div className="flex justify-between">
+                    <div className="">
+                        <CardTitle className="text-gray-900">Transaction</CardTitle>
+                        <CardDescription>Last updated 2 hours ago</CardDescription>
+                    </div>
+                    <div className="">
+                        <FilterButton />
+                    </div>
+                </div>
+
+            </CardHeader >
 
             <Table>
                 <TableCaption>A list of your recent invoices.</TableCaption>
                 {/* Conditionally render the TableHeader */}
                 {
                     headerOn && (
-                        <TableHeader>
+                        <TableHeader className="bg-green-100">
                             <TableRow>
                                 <TableHead className="w-[100px]">Name</TableHead>
                                 <TableHead>Status</TableHead>
@@ -56,6 +65,6 @@ export default function Transaction({ headerOn }: { headerOn: boolean }) {
                     </TableRow>
                 </TableBody>
             </Table >
-        </div>
+        </div >
     );
 }

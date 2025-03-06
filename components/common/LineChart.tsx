@@ -17,6 +17,8 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import FilterButton from "./FilterButton"
+
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
   { month: "February", desktop: 305, mobile: 200 },
@@ -24,6 +26,14 @@ const chartData = [
   { month: "April", desktop: 73, mobile: 190 },
   { month: "May", desktop: 209, mobile: 130 },
   { month: "June", desktop: 214, mobile: 140 },
+]
+const chartDataSecond = [
+  { month: "January", desktop: 186, mobile: 100 },
+  { month: "February", desktop: 305, mobile: 220 },
+  { month: "March", desktop: 370, mobile: 140 },
+  { month: "April", desktop: 120, mobile: 210 },
+  { month: "May", desktop: 421, mobile: 150 },
+  { month: "June", desktop: 234, mobile: 160 },
 ]
 
 const chartConfig = {
@@ -37,24 +47,32 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export default function LineChart_1() {
+export default function LineChart_1({ className }: { className: string }) {
   return (
-    <div className="border rounded-2xl p-4 ">
+    <div className={`border rounded-2xl p-4 ${className}`}>
 
       <Card>
 
         <CardHeader>
-          <CardTitle>Cash Flow</CardTitle>
-          <CardDescription>January - June 2025</CardDescription>
-        </CardHeader>
+          <div className="flex justify-between">
+            <div className="">
+              <CardTitle>Cash Flow</CardTitle>
+              <CardDescription>January - June 2025</CardDescription>
+            </div>
+            <div className="">
+              <FilterButton />
+            </div>
+          </div>
+
+        </CardHeader >
 
         <CardContent>
-          <ChartContainer config={chartConfig}>
+          <ChartContainer className="aspect-[3/1]" config={chartConfig}>
             <LineChart
               accessibilityLayer
-              data={chartData}
+              data={chartDataSecond}
               margin={{
-                
+
                 top: 20,
                 left: 12,
                 right: 12,

@@ -1,5 +1,7 @@
+"use client"
 import * as React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Eye, EyeOff } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -7,45 +9,65 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { accounts } from "@/model/transaction";
 
 export function CardCarousel() {
+
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  const handleVisible = () => {
+    const currentState = isVisible
+    setIsVisible(!currentState)
+  }
+
+  const formatIdentifier = (input: string) => {
+    return input.match(/.{1,4}/g)?.join(" ") || "";
+  }
+
   return (
-    // <Carousel className="w-full min-w-[260px] sm:min-w-[280px] sm:mx-auto md:min-w-[320px] lg:min-w-[320px]">
-    // <Carousel className="w-full max- min-w-[300px]">
-    // <Carousel className="w-full max-w-[300px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[320px]">
+
     <Carousel className="w-full max-w-[300px]">
+
+
       <CarouselContent>
-        {Array.from({ length: 3 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-full">
+        {accounts.map((account, index) => {
 
-            <Card className="bg-green-900 text-white rounded-xl aspect-[5/3] flex flex-col justify-between p-4">
-              {/* Bank Name & Type */}
-              <div className="flex justify-between items-center text-xs">
-                <span className="font-semibold">Nimbus Bank</span>
-                <span className="opacity-70">Visa</span>
-              </div>
-
-              {/* Card Number */}
-              <div className="text-base font-mono tracking-widest text-center">
-                •••• •••• •••• {4567 + index}
-              </div>
-
-              {/* Name & Expiry */}
-              <div className="flex justify-between text-xs opacity-80">
-                <span>Gia Bao Tran</span>
-                <span>12/26</span>
-              </div>
+          // Format balance into whole dollars & cents separately
 
 
-            </Card>
+          let formatted_balance = new Intl.NumberFormat("de-DE", { style: "currency", currency: account.currency }).format(account.balance)
+          let formatted_identifier = formatIdentifier(account.identifier)
+          const identifier = isVisible ? formatted_identifier : `•••• •••• •••• ${formatted_identifier.slice(-4)}`
 
-          </CarouselItem>
-        ))}
+          return (
+            <CarouselItem key={index} className="basis-full">
+
+              <Card className="bg-green-900 text-white rounded-xl aspect-[5/3] flex flex-col justify-between p-4">
+                {/* Bank Name & Type */}
+                <div className="flex justify-between items-center text-xs">
+                  <span className="font-semibold">{account.bank}</span>
+                  <span className="opacity-70">{account.provider}</span>
+                </div>
+
+                <div onClick={handleVisible} className="flex items-center justify-center gap-2 text-base font-mono tracking-widest text-center cursor-pointer">
+                  {identifier} {isVisible ? <EyeOff size={16} /> : <Eye size={16} />}
+                </div>
+
+                {/* Name & Expiry */}
+                <div className="flex justify-between text-xs opacity-80">
+                  <span>{formatted_balance} </span>
+                  <span>{account.expiryDate}</span>
+                </div>
+
+
+              </Card>
+            </CarouselItem>)
+        })}
+
       </CarouselContent>
-
-      {/* Navigation Buttons */}
       <CarouselNext />
       <CarouselPrevious />
+
     </Carousel>
   );
 }
