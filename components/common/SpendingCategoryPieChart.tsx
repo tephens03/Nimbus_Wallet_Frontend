@@ -21,6 +21,7 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart"
 import FilterButton from "./FilterButton"
+import { transactions } from "@/model/transaction"
 
 
 const chartData = [
@@ -57,9 +58,14 @@ const chartConfig = {
     },
 } satisfies ChartConfig
 
-export default function PieChart_1() {
+enum CategoryColor{
+    
+}
+
+export default function SpendingCategoryPieChart() {
+
     const totalVisitors = React.useMemo(() => {
-        return chartData.reduce((acc, curr) => acc + curr.visitors, 0)
+        return transactions.reduce((acc, curr) => acc + curr.amount, 0)
     }, [])
 
     return (
@@ -78,6 +84,7 @@ export default function PieChart_1() {
                         </div>
                     </div>
                 </CardHeader >
+
 
                 <CardContent className="flex-1 pb-0">
                     <ChartContainer
@@ -111,14 +118,14 @@ export default function PieChart_1() {
                                                         y={viewBox.cy}
                                                         className="fill-foreground text-3xl font-bold"
                                                     >
-                                                        {totalVisitors.toLocaleString()}
+                                                        ${totalVisitors.toLocaleString()}
                                                     </tspan>
                                                     <tspan
                                                         x={viewBox.cx}
                                                         y={(viewBox.cy || 0) + 24}
                                                         className="fill-muted-foreground"
                                                     >
-                                                        Visitors
+                                                        Spent
                                                     </tspan>
                                                 </text>
                                             )
@@ -127,13 +134,20 @@ export default function PieChart_1() {
                                 />
 
                             </Pie>
+
                             <ChartLegend
                                 content={<ChartLegendContent nameKey="browser" />}
                                 className="-translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
                             />
+
+
                         </PieChart>
                     </ChartContainer>
                 </CardContent>
+
+
+
+
                 <CardFooter className="flex-col gap-2 text-sm">
                     <div className="flex items-center gap-2 font-medium leading-none">
                         Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
@@ -142,6 +156,10 @@ export default function PieChart_1() {
                         Showing total visitors for the last 6 months
                     </div>
                 </CardFooter>
+
+
+
+
             </Card>
         </div>
     )

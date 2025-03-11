@@ -47,7 +47,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export default function LineChart_1({ className }: { className: string }) {
+export default function CashFlowLineChart({ className }: { className: string }) {
   return (
     <div className={`border rounded-2xl p-4 ${className}`}>
 
