@@ -1,9 +1,9 @@
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Sidebar from "@/components/common/Sidebar"
+import Sidebar from "@/components/layout/Sidebar"
 import "./globals.css";
-import Header from "@/components/common/Header";
+import MainHeader from "@/components/layout/MainHeader";
 import './globals.css'
 
 const geistSans = Geist({
@@ -39,11 +39,9 @@ export default function RootLayout({
 
           <div className="flex flex-col flex-grow">
 
-            <Header userFullName={"Gia Bao Tran"} />
+            <MainHeader userFullName={"Gia Bao Tran"} />
 
             <main className="overflow-auto px-6 flex-grow">
-
-
 
               {children}
 

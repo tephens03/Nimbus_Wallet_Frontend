@@ -1,4 +1,4 @@
-import TransactionTable from "@/components/common/TransactionTable";
+import TransactionTable from "@/components/section/Transactions";
 
 export default function Home() {
   return (

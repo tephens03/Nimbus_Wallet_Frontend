@@ -39,35 +39,44 @@ export default function AccountCarousel() {
 
   return (
     <Carousel className="w-full max-w-[300px]">
+      
       <CarouselContent>
+
         {accounts.map((account, index) => (
+
           <CarouselItem key={index} className="basis-full">
-            <Card className="bg-green-900 text-white rounded-xl aspect-[5/3] flex flex-col justify-between p-4">
+            <Card className="bg-gradient-to-r from-green-900 to-green-700 text-white rounded-xl aspect-[5/3] flex flex-col justify-between p-6 shadow hover:shadow-2xl|transform|hover:scale-105|transition-all|duration-300|ease-in-out|">
               {/* Bank Name & Type */}
-              <div className="flex justify-between items-center text-xs">
-                <span className="font-semibold">{account.bank}</span>
-                <span className="opacity-70">{account.provider}</span>
+              <div className="flex justify-between items-center text-xs mb-4">
+                <span className="font-semibold text-lg">{account.bank}</span>
+                <span className="opacity-80 text-sm">{account.provider}</span>
               </div>
 
               {/* Identifier with Toggle Visibility */}
               <div
                 onClick={toggleVisibility}
-                className="flex items-center justify-center gap-2 text-base font-mono tracking-widest text-center cursor-pointer"
+                className="flex items-center justify-center gap-2 text-base font-mono tracking-widest text-center cursor-pointer mt-4"
               >
-                {renderIdentifier(account, isVisible)}
+                {/* Render the identifier (i.e., card number) */}
+                <span className="font-bold">{renderIdentifier(account, isVisible)}</span>
+
+                {/* Eye Icon for visibility toggle */}
                 {isNumeric(account.identifier) && (
-                  isVisible ? <EyeOff size={16} /> : <Eye size={16} />
+                  isVisible ? <EyeOff size={18} className="text-white" /> : <Eye size={18} className="text-white" />
                 )}
               </div>
 
               {/* Balance & Expiry Date */}
-              <div className="flex justify-between text-xs opacity-80">
-                <span>{renderBalance(account)}</span>
-                <span>{renderExpiryDate(account.expiryDate)}</span>
+              <div className="flex justify-between items-center text-xs opacity-70 mt-4">
+                <span className="text-sm">{renderBalance(account)}</span>
+                <span className="text-sm">{renderExpiryDate(account.expiryDate)}</span>
               </div>
             </Card>
           </CarouselItem>
+
+
         ))}
+
       </CarouselContent>
 
       <CarouselNext />

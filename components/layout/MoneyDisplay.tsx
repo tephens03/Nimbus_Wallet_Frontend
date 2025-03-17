@@ -11,7 +11,7 @@ interface MoneyDisplayProps {
 
 const MoneyDisplay: React.FC<MoneyDisplayProps> = (prop: MoneyDisplayProps) => {
 
-    const arrowStatus = prop.status == "up" ? <ArrowUpCircle size={12} /> : <ArrowDownCircle size={12} />
+    const arrowStatus = prop.status == "up" ? <ArrowUpCircle size={18} /> : <ArrowDownCircle size={18} />
     const iconStatus = prop.status == "up" ? "bg-green-100 text-green-900" : "bg-red-100 text-red-900"
 
     return (
@@ -20,7 +20,7 @@ const MoneyDisplay: React.FC<MoneyDisplayProps> = (prop: MoneyDisplayProps) => {
             {/* Top Section with Icon and Menu */}
             <div className="flex justify-between items-start">
                 {/* Money In Icon (Arrow Up) */}
-                <div className={`${iconStatus} p-2 rounded-lg`}>
+                <div className={`bg-green-100 p-2 rounded-lg`}>
                     {arrowStatus}
                 </div>
                 {/* Three-dot menu */}
