@@ -1,18 +1,18 @@
 "use client"
+import { useContext } from "react";
 import * as React from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { accounts } from "@/model/account";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { formatCurrency, formatHiddenIdentifier, formatNumericIdentifier, isNumeric } from "@/lib/utils";
+import { AppContext } from "@/store/app-context";
+
 
 export default function AccountCarousel() {
+  const context = useContext(AppContext);
+
+  const accounts = context?.accounts ?? []
+
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(prev => !prev);
@@ -38,8 +38,9 @@ export default function AccountCarousel() {
   };
 
   return (
-    <Carousel className="w-full max-w-[300px]">
-      
+
+    < Carousel className="w-full max-w-[300px]" >
+
       <CarouselContent>
 
         {accounts.map((account, index) => (
@@ -80,7 +81,9 @@ export default function AccountCarousel() {
       </CarouselContent>
 
       <CarouselNext />
+
       <CarouselPrevious />
-    </Carousel>
+
+    </Carousel >
   );
 }

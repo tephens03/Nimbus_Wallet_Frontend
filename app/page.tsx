@@ -12,7 +12,7 @@ import Summary from "@/components/section/Summary";
 export default function Home() {
   return (
 
-    <div className="flex flex-wrap gap-4 w-full ">
+    <div className="flex flex-wrap gap-4 w-full">
 
       {/* Left Section (3 parts) */}
       <div className="flex-[14] flex flex-col">

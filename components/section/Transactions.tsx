@@ -1,3 +1,5 @@
+"use client"
+
 import {
     Table,
     TableBody,
@@ -8,15 +10,21 @@ import {
     TableRow,
 } from "@/components/ui/table";
 
-import { transactions, TransactionStatus } from "@/model/transaction";
+import { TransactionStatus } from "@/model/transaction";
 import { formatCurrency, isNumeric } from "@/lib/utils";
 import SectionHeader from "../layout/SectionHeader";
 import SectionContainer from "../container/SectionContainer";
 import SectionContent from "../layout/SectionContent";
+import { useContext } from "react";
+import { AppContext } from "@/store/app-context";
 
 
 
 const TransactionTable = () => {
+    const context = useContext(AppContext);
+
+    const transactions = context?.transactions ?? []
+
     return (
         <SectionContainer>
 

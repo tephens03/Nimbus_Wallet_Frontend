@@ -11,32 +11,13 @@ const Investments = () => {
 
             <SectionHeader title="Investments" />
 
-
             <SectionContent >
 
-                <Investment
-                    title="S-Apple"
-                    price={150}
-                    quantity={50}
-                    diffPercentage={10}
-                    isGain={true}
-                    className="mb-4"
-                />
-                <Investment
-                    title="Pi Coin"
-                    price={22000}
-                    quantity={1}
-                    diffPercentage={-3}
-                    isGain={false}
-                    className="mb-4"
-                />
-                <Investment
-                    title="Coins - Gold"
-                    price={1800}
-                    quantity={2}
-                    diffPercentage={5}
-                    isGain={true}
-                />
+                <Investment title="S-Apple" price={150} quantity={50} diffPercentage={10} isGain={true} className="mb-4" />
+
+                <Investment title="Pi Coin" price={22000} quantity={1} diffPercentage={-3} isGain={false} className="mb-4" />
+                
+                <Investment title="Coins - Gold" price={1800} quantity={2} diffPercentage={5} isGain={true} />
 
             </SectionContent>
 

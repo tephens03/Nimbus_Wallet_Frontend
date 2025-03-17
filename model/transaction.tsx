@@ -18,13 +18,13 @@ export enum TransactionStatus {
     PENDING
 }
 
-interface Transaction {
+export interface Transaction {
     name: string;
     category: TransactionCategory;
     status: TransactionStatus;
     date: string;
     account: Account;
-    amount: 100,
+    amount: number,
 }
 
 export const transactions: Transaction[] = [
@@ -32,7 +32,7 @@ export const transactions: Transaction[] = [
         name: "Grocery Shopping",
         category: TransactionCategory.ESSENTIALS,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-01",
+        date: "2024-12-01",
         account: accounts[1],
         amount: 100,
     },
@@ -40,7 +40,7 @@ export const transactions: Transaction[] = [
         name: "Grocery Shopping",
         category: TransactionCategory.ESSENTIALS,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-01",
+        date: "2024-11-01",
         account: accounts[1],
         amount: 100,
     },
@@ -48,7 +48,7 @@ export const transactions: Transaction[] = [
         name: "RG35XX",
         category: TransactionCategory.ESSENTIALS,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-01",
+        date: "2024-10-01",
         account: accounts[3],
         amount: 100,
     },
@@ -56,7 +56,7 @@ export const transactions: Transaction[] = [
         name: "Gas Station Fuel",
         category: TransactionCategory.TRANSPORTATION,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-03",
+        date: "2024-09-01",
         account: accounts[0],
         amount: 100,
     },
@@ -64,7 +64,7 @@ export const transactions: Transaction[] = [
         name: "Starbucks Coffee",
         category: TransactionCategory.FOOD_DINING,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-04",
+        date: "2024-08-01",
         account: accounts[0],
         amount: 100,
     },
@@ -72,7 +72,7 @@ export const transactions: Transaction[] = [
         name: "New Sneakers",
         category: TransactionCategory.SHOPPING_PERSONAL,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-05",
+        date: "2024-07-01",
         account: accounts[2],
         amount: 100,
     },
@@ -80,7 +80,7 @@ export const transactions: Transaction[] = [
         name: "Netflix Subscription",
         category: TransactionCategory.ENTERTAINMENT,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-06",
+        date: "2024-06-01",
         account: accounts[0],
         amount: 100,
     },
@@ -88,7 +88,7 @@ export const transactions: Transaction[] = [
         name: "Gym Membership",
         category: TransactionCategory.HEALTH_FITNESS,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-07",
+        date: "2024-05-01",
         account: accounts[1],
         amount: 100,
     },
@@ -96,7 +96,7 @@ export const transactions: Transaction[] = [
         name: "Stock Investment",
         category: TransactionCategory.FINANCE_INVESTMENTS,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-08",
+        date: "2024-04-01",
         account: accounts[2],
         amount: 100,
     },
@@ -104,7 +104,7 @@ export const transactions: Transaction[] = [
         name: "Freelance Payment",
         category: TransactionCategory.INCOME_TRANSFERS,
         status: TransactionStatus.COMPLETED,
-        date: "2025-03-09",
+        date: "2024-03-01",
         account: accounts[0],
         amount: 100,
     }
